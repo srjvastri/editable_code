@@ -1,0 +1,20 @@
+public class Solution {
+    public ArrayList<Integer> prevSmaller(ArrayList<Integer> A) {
+        Stack<Integer> min = new Stack<Integer>();
+        ArrayList<Integer> ans = new ArrayList<Integer>();
+        min.push(A.get(0));
+        ans.add(-1);
+        for(int i =1 ; i<A.size() ; i++){
+            if(A.get(i) > min.peek() ){
+                int num = min.peek();
+                ans.add(num);
+                
+            }
+            if (A.get(i) <= min.peek()){
+                min.push(A.get(i));
+                ans.add(-1);
+            }
+        }
+        return ans;
+    }
+}
